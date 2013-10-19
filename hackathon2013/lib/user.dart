@@ -1,0 +1,5 @@
+library user;
+
+class User {
+  
+}
