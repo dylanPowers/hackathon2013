@@ -1,7 +1,7 @@
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 
-var chatWindow;
+var chatWindow1;
 var inputWindow;
 var sendButton;
 
@@ -11,7 +11,7 @@ const String WEB_ADDRESS = "localhost";
 
 void main() {
   
-  //chatWindow = query("#chatWindowId");
+  chatWindow1 = query("#chatWindowId1");
   inputWindow = query("#inputWindowId");
   sendButton = query("#sendButtonId");
   
@@ -28,7 +28,7 @@ void main() {
 
 void send(MouseEvent e) {
   if(inputWindow.value != "") {
-    chatWindow.value = chatWindow.value + inputWindow.value + "\n";
+    chatWindow1.value = chatWindow1.value + inputWindow.value + "\n";
     inputWindow.value = "";
   }
 }
