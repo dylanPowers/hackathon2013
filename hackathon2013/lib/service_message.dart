@@ -9,6 +9,8 @@ class ServiceMessage {
   num action;
   List items;
   
+  ServiceMessage(this.action, this.items);
+  
   String toJson() {
     var jsonStr = 'ServiceMessage : { ' +
         'action : ${json.stringify(action)},' +
