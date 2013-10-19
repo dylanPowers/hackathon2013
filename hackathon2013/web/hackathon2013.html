@@ -6,18 +6,14 @@
     <title>SmallTalk</title>
     <script src="packages/polymer/boot.js"></script> 
     <link rel="stylesheet" href="hackathon2013.css"> 
-    <link rel="import" href="chatWindow.html">
+    <link rel="import" href="chat_window.html">
+    <link rel="import" href="input_window.html">
   </head>
   <body>
-  
-    <chat-window></chat-window>
+
+    <chat-window id="chat-window-id"></chat-window>
     
-    <div align="center">
-      <form>
-        <input type="text" name="inputWindow" id="inputWindowId"></input>
-        <input type="button" name="sendButton" value="Send!" id="sendButtonId"></input>
-      </form>
-    </div>
+    <input-window id="input-window-id"></input-window>
 
     <script type="application/dart" src="hackathon2013.dart"></script>
   </body>
