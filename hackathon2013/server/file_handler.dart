@@ -14,6 +14,7 @@ class FileHandler {
   
   void onRequest(HttpRequest request) {
     String path = request.uri.path;
+    print("Http request for $path");
     if (request.uri.path == '/') {
       path = '/hackathon2013.html';
     }
