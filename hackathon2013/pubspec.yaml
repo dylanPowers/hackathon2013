@@ -2,6 +2,7 @@ name: hackathon2013
 description: A sample web application
 dependencies:
   browser: any
+  json: any
   mongo_dart: any
   pathos: any
   polymer: any
