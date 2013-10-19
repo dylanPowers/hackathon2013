@@ -5,7 +5,7 @@ class FileHandler {
   final String _basePath;
   
   FileHandler(Directory dir) : 
-      _basePath = new Directory("${dir.path}../web/").absolute.toString();
+      _basePath = new Directory("${dir.path}../web").absolute.path.toString();
   
   void _send404(HttpResponse response) {
     response.statusCode = HttpStatus.NOT_FOUND;
@@ -20,6 +20,7 @@ class FileHandler {
     }
     
     final File file = new File('${_basePath}${path}');
+    print("$file");
     file.exists().then((bool found) {
       if (found) {
         if (!file.absolute.path.startsWith(_basePath)) {
@@ -32,6 +33,8 @@ class FileHandler {
       } else {
         _send404(request.response);
       }
+    }).catchError((error){
+      _send404(request.response);
     });    
   }  
 }
