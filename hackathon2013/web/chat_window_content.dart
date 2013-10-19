@@ -11,8 +11,12 @@ class ChatWindowContent extends PolymerElement {
   
   User user;
   
+  WebSocket webSocket;
+  
   void inserted() {
     super.inserted();
+    
+    //webSocket.onMessage.listen(receiveFromServer);
     
     chatTextWindow = $['chatTextWindowId'];
     inputTextWindow = $['inputTextWindowId'];
@@ -22,7 +26,9 @@ class ChatWindowContent extends PolymerElement {
   void send(MouseEvent e) {
     //SEND
     if(inputTextWindow.value != "") {
-      chatTextWindow.value = chatTextWindow.value + inputTextWindow.value + "\n";
+      
+      //Message message = new Message()
+      
       inputTextWindow.value = "";
     }
   }
@@ -31,5 +37,9 @@ class ChatWindowContent extends PolymerElement {
     if(e.keyCode == KeyCode.ENTER) {
       sendButton.click();
     }
+  }
+  
+  void receiveFromServer(MessageEvent e) {
+    
   }
 }

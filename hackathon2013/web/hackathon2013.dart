@@ -12,12 +12,6 @@ void main() {
   
   window.onSubmit.listen(stopRefresh);
   
-  try {
-    webSocket = new WebSocket(SOCKET_ADDRESS);
-  } catch(e) {
-    
-  }
-  
 }
 
 void stopRefresh(Event e) {
