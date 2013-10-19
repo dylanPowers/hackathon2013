@@ -1,11 +1,20 @@
-
-
 <polymer-element name="chat-window">
 
   <template>
   
-    <div align="center">
-      <textarea readonly rows="4" cols="50" id="chatWindowId" style="overflow-y: scroll; resize: none; width:90%; height:500px; overflow:auto; padding:5px; margin-left:auto; margin-right:auto;"></textarea>
+    <div align="center" class="container" id="divContainerId">
+      
+      <div align="center">
+      
+        <p> Hi there, what's your name? </p>
+      
+        <form>
+          <input type="text" name="nameTextWindow" id="nameTextWindowId" on-keydown="enter"></input>
+          <input type="button" name="submitButton" value="Submit!" id="submitButtonId" on-click="submit"></input>
+        </form>
+      
+      </div>
+      
     </div>
     
   </template>
