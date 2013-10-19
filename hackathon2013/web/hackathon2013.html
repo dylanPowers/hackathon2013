@@ -3,16 +3,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Hackathon2013</title>
+    <title>SmallTalk</title>
     <link rel="stylesheet" href="hackathon2013.css">
+    <script src="packages/polymer/boot.js"></script>
+    <link rel="import" href="chatWindow.html">
   </head>
   <body>
-    <h1>Hackathon2013</h1>
     
-    <p>Hello world from Dart!</p>
+    <chatWindow></chatWindow>
     
-    <div id="sample_container_id">
-      <p id="sample_text_id"></p>
+    <div align="center">
+      <form>
+        <input type="text" name="inputWindow" id="inputWindowId"></input>
+        <input type="button" name="sendButton" value="Send!" id="sendButtonId"></input>
+      </form>
     </div>
 
     <script type="application/dart" src="hackathon2013.dart"></script>

@@ -1,16 +1,39 @@
 import 'dart:html';
+import 'package:polymer/polymer.dart';
+
+var chatWindow;
+var inputWindow;
+var sendButton;
+
+var webSocket;
+
+const String WEB_ADDRESS = "localhost";
 
 void main() {
-  query("#sample_text_id")
-    ..text = "Click me!"
-    ..onClick.listen(reverseText);
+  
+  //chatWindow = query("#chatWindowId");
+  inputWindow = query("#inputWindowId");
+  sendButton = query("#sendButtonId");
+  
+  //try {
+    //webSocket = new WebSocket(WEB_ADDRESS);
+  //} catch(e) {
+    
+  //}
+    
+  sendButton.onClick.listen(send);
+  
+  window.onSubmit.listen(enter);
 }
 
-void reverseText(MouseEvent event) {
-  var text = query("#sample_text_id").text;
-  var buffer = new StringBuffer();
-  for (int i = text.length - 1; i >= 0; i--) {
-    buffer.write(text[i]);
+void send(MouseEvent e) {
+  if(inputWindow.value != "") {
+    chatWindow.value = chatWindow.value + inputWindow.value + "\n";
+    inputWindow.value = "";
   }
-  query("#sample_text_id").text = buffer.toString();
+}
+
+void enter(Event e) {
+  e.preventDefault();
+  sendButton.click();
 }
