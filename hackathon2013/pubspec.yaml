@@ -2,3 +2,5 @@ name: hackathon2013
 description: A sample web application
 dependencies:
   browser: any
+  polymer: any
+  shadow_dom: any
