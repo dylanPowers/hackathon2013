@@ -34,7 +34,7 @@ class ChatWindow extends PolymerElement {
     ChatWindowContent content = chatWindowContent.xtag;
     
     content.user = new User(nameTextWindow.value);
-    /*
+    
     try {
       content.webSocket = new WebSocket(_SOCKET_ADDRESS);
     } catch(e) {
@@ -48,12 +48,9 @@ class ChatWindow extends PolymerElement {
     
     ServiceMessage serviceMessage = new ServiceMessage(ServiceMessage.ACTION_NEW, [content.user]);
     
-    String message = serviceMessage.toJson();
-    
-    content.webSocket.sendString(message);
+    content.webSocket.sendString(serviceMessage.toJson());
     
     //HERE
-     */
     
     divContainer.children.clear();
     
