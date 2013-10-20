@@ -1,20 +1,9 @@
 <polymer-element name="message-box">
-
-  <template>
+  <template>  
+    <div class={{cssClassProps}} align="center" id="message-box">
+      <p>{{boxText}}</p>
+    </div>    
+  </template>
   
-    <style>
-      #box {
-        background-color:#ffffff;
-        border-radius:15px;
-      }
-    </style>
-  
-    <div align="center" id="box">
-      <p> {{boxText}} </p>
-    </div>
-    
-   </template>
-  
-  <script type="application/dart" src="message_box.dart"></script>
-  
+  <script type="application/dart" src="message_box.dart"></script>  
 </polymer-element>

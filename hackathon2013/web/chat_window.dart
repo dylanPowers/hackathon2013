@@ -15,13 +15,15 @@ class ChatWindow extends PolymerElement {
   var submitButton;
   var divContainer;
   
+  get applyAuthorStyles => true;
+  
   void inserted() {
     super.inserted();
     
     text = $['textId'];
     nameTextWindow = $['nameTextWindowId'];
     submitButton = $['submitButtonId'];
-    divContainer = $['divContainerId'];
+    divContainer = $['chat-window'];
   }
   
   void submit(MouseEvent e) {
