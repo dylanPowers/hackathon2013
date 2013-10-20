@@ -14,6 +14,8 @@ class ChatWindowContent extends PolymerElement {
   var timeAliveWindow;
   var sendButton;
   
+  List<ChatMessage> chatMessageList = [];
+  
   User user;
   
   WebSocket webSocket;
@@ -21,7 +23,7 @@ class ChatWindowContent extends PolymerElement {
   void inserted() {
     super.inserted();
     
-    //webSocket.onMessage.listen(receiveFromServer);
+    webSocket.onMessage.listen(receiveFromServer);
     
     messageWindow = $['messageWindowId'];
     inputTextWindow = $['inputTextWindowId'];
@@ -33,17 +35,13 @@ class ChatWindowContent extends PolymerElement {
     //SEND
     if(inputTextWindow.value != "") {
       
-      messageBox = createElement('message-box');
-      
-      MessageBox box = messageBox.xtag;
-      
-      box.boxText = inputTextWindow.value;
-      
-      messageWindow.children.add(messageBox);
-      
       ChatMessage message = new ChatMessage(inputTextWindow.value, new Duration(hours:0, minutes:0, seconds:int.parse(timeAliveWindow.value)), user);
       
-      //webSocket.sendString(message.toJSON());
+      chatMessageList.add(message);
+      
+      addMessageBox(message);
+      
+      webSocket.sendString(message.toJson());
       
       inputTextWindow.value = "";
     }
@@ -57,5 +55,25 @@ class ChatWindowContent extends PolymerElement {
   
   void receiveFromServer(MessageEvent e) {
     
+    ChatMessage message = new ChatMessage.fromMap(e.data);
+    
+    chatMessageList.add(message);
+    
+    addMessageBox(message);
+    
+  }
+  
+  void addMessageBox(ChatMessage c) {
+    messageBox = createElement('message-box');
+    
+    MessageBox box = messageBox.xtag;
+    
+    box.boxText = c.text;
+    
+    if(c.sender.id == user.id) {
+      
+    }
+    
+    messageWindow.children.add(messageBox);
   }
 }
