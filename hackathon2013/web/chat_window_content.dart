@@ -1,6 +1,7 @@
 import 'dart:html';
 import 'package:hackathon2013/user.dart';
 import 'package:hackathon2013/chat_message.dart';
+import 'package:hackathon2013/service_message.dart';
 import 'package:polymer/polymer.dart';
 import 'message_box.dart';
 
@@ -33,7 +34,6 @@ class ChatWindowContent extends PolymerElement {
   }
   
   void send(MouseEvent e) {
-    //SEND
     if(inputTextWindow.value != "") {
       
       ChatMessage message = new ChatMessage(inputTextWindow.value, new Duration(hours:0, minutes:0, seconds:int.parse(timeAliveWindow.value)), user);
@@ -56,7 +56,39 @@ class ChatWindowContent extends PolymerElement {
   
   void receiveFromServer(MessageEvent e) {
     
-    ChatMessage message = new ChatMessage.fromMap(e.data);
+    var svcMsg = new ServiceMessage.fromJson(e.data);
+    if (svcMsg.action == ServiceMessage.ACTION_NEW) {
+      svcMsg.items.forEach((item){
+        if (item is User) {
+          User user = _db.storeUser(item);
+          _connections[conn] = user;
+          conn.add(new ServiceMessage(ServiceMessage.ACTION_UPDATE, [user]).toJson());
+          
+          List msgs = _db.retrieveChatMessages();
+          conn.add(new ServiceMessage(ServiceMessage.ACTION_NEW, msgs).toJson());
+        } else if (item is ChatMessage) {
+          var message = _db.storeChatMessage(item);
+          _sendChatMessage(message);
+        }
+      });
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    var message = new ServiceMessage.fromJson(e.data);
+    
+    
     
     chatMessageList.add(message);
     
@@ -71,8 +103,8 @@ class ChatWindowContent extends PolymerElement {
     
     box.boxText = c.text;
     
-    if(c.sender.id == user.id) {
-      
+    if(c.sender.id != user.id) {
+      box.cssClassProps = "left";
     }
     
     messageWindow.children.add(messageBox);
