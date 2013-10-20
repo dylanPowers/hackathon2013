@@ -16,9 +16,12 @@ class SocketHandler {
     if (svcMsg.action == ServiceMessage.ACTION_NEW) {
       svcMsg.items.forEach((item){
         if (item is User) {
-          var user = _db.storeUser(item);
+          User user = _db.storeUser(item);
           _connections[conn] = user;
-          conn.add(new ServiceMessage(ServiceMessage.ACTION_UPDATE, [user]));
+          conn.add(new ServiceMessage(ServiceMessage.ACTION_UPDATE, [user]).toJson());
+          
+          List msgs = _db.retrieveChatMessages();
+          conn.add(new ServiceMessage(ServiceMessage.ACTION_NEW, msgs).toJson());
         } else if (item is ChatMessage) {
           var message = _db.storeChatMessage(item);
           _sendChatMessage(message);
@@ -28,8 +31,13 @@ class SocketHandler {
   }
   
   void _sendChatMessage(ChatMessage msg) {
+    String svcMsg = new ServiceMessage(ServiceMessage.ACTION_NEW, [msg]).toJson();
     _connections.forEach((WebSocket conn, User usr) {
-      if (usr != msg.)
+      if (usr != msg.sender) {
+        conn.add(svcMsg);
+      } else {
+        conn.add(new ServiceMessage(ServiceMessage.ACTION_UPDATE, [msg]).toJson());
+      }
     });
   }
 }

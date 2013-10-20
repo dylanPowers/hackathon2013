@@ -15,4 +15,6 @@ class User {
         "name : $name" + 
         "}";
   }
+  
+  bool operator==(User rhs) => id == rhs.id;
 }

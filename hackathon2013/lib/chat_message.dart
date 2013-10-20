@@ -4,7 +4,7 @@ import 'user.dart';
 
 class ChatMessage {
   
-  num ID;
+  int id;
   
   DateTime _sendTime;
   DateTime receiveTime;
@@ -14,6 +14,10 @@ class ChatMessage {
   String _text;
   
   User _sender;
+  User get sender => _sender;
+  
+  bool get isAlive => new DateTime.now().compareTo(receiveTime.add(_timeAlive)) < 0;
+  
   
   ChatMessage(this._text, this._timeAlive, this._sender) {
     
@@ -27,4 +31,6 @@ class ChatMessage {
     //TODO
     return "";
   }
+  
+  bool operator==(ChatMessage rhs) => id == rhs.id;
 }
