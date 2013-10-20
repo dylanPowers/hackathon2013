@@ -39,7 +39,7 @@ class ChatWindowContent extends PolymerElement {
       
       box.boxText = inputTextWindow.value;
       
-      messageWindow.children.add(box.xtag);
+      messageWindow.children.add(messageBox);
       
       ChatMessage message = new ChatMessage(inputTextWindow.value, new Duration(hours:0, minutes:0, seconds:int.parse(timeAliveWindow.value)), user);
       
