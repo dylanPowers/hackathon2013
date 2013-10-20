@@ -16,7 +16,8 @@ class ChatWindowContent extends PolymerElement {
   
   User user;
   
-  WebSocket webSocket;
+  WebSocket webSocket;  
+  get applyAuthorStyles => true;
   
   void inserted() {
     super.inserted();
