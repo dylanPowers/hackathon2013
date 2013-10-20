@@ -1,6 +1,5 @@
 import 'dart:html';
 import 'chat_window_content.dart';
-import 'package:hackathon2013/service_message.dart';
 import 'package:hackathon2013/user.dart';
 import 'package:polymer/polymer.dart';
 
@@ -34,7 +33,7 @@ class ChatWindow extends PolymerElement {
     ChatWindowContent content = chatWindowContent.xtag;
     
     content.user = new User(nameTextWindow.value);
-    
+    /*
     try {
       content.webSocket = new WebSocket(_SOCKET_ADDRESS);
     } catch(e) {
@@ -50,7 +49,7 @@ class ChatWindow extends PolymerElement {
     
     content.webSocket.sendString(serviceMessage.toJson());
     
-    //HERE
+    //HERE*/
     
     divContainer.children.clear();
     

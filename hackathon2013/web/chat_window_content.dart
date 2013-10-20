@@ -2,11 +2,14 @@ import 'dart:html';
 import 'package:hackathon2013/user.dart';
 import 'package:hackathon2013/chat_message.dart';
 import 'package:polymer/polymer.dart';
+import 'message_box.dart';
 
 @CustomTag('chat-window-content')
 class ChatWindowContent extends PolymerElement {
   
-  var chatTextWindow;
+  var messageBox;
+  
+  var messageWindow;
   var inputTextWindow;
   var timeAliveWindow;
   var sendButton;
@@ -18,9 +21,9 @@ class ChatWindowContent extends PolymerElement {
   void inserted() {
     super.inserted();
     
-    webSocket.onMessage.listen(receiveFromServer);
+    //webSocket.onMessage.listen(receiveFromServer);
     
-    chatTextWindow = $['chatTextWindowId'];
+    messageWindow = $['messageWindowId'];
     inputTextWindow = $['inputTextWindowId'];
     timeAliveWindow = $['timeAliveWindowId'];
     sendButton = $['sendButtonId'];
@@ -30,9 +33,17 @@ class ChatWindowContent extends PolymerElement {
     //SEND
     if(inputTextWindow.value != "") {
       
+      messageBox = createElement('message-box');
+      
+      MessageBox box = messageBox.xtag;
+      
+      box.boxText = inputTextWindow.value;
+      
+      messageWindow.children.add(box.xtag);
+      
       ChatMessage message = new ChatMessage(inputTextWindow.value, new Duration(hours:0, minutes:0, seconds:int.parse(timeAliveWindow.value)), user);
       
-      webSocket.sendString(message.toJSON());
+      //webSocket.sendString(message.toJSON());
       
       inputTextWindow.value = "";
     }

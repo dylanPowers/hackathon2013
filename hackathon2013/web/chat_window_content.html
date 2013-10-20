@@ -1,21 +1,21 @@
 <polymer-element name="chat-window-content">
 
-  <template bind>
+  <template>
   
     <style>
-      #chatTextWindowId {
+      #messageWindowId {
         resize: none;
         width:100%;
         height:500px;
-        overflow:auto;
+        overflow-y: scroll;
         padding:0px;
         margin-left:0px;
         margin-right:0px;
+        background-color:#b0c4de;
       }
     </style>
   
-    <div align="center">
-      <textarea readonly id="chatTextWindowId"></textarea>
+    <div align="center" class="container" id="messageWindowId">
     </div>
       
     <div align="center">
