@@ -10,3 +10,22 @@ body {
 h1, p {
   color: #333;
 }
+
+
+
+.right {
+  clear: both;
+  background-color: rgb(228, 238, 111);
+  float: right;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  position: relative;
+  right: 25px;
+  width: 324px;
+}
+
+
+
+#message-box {
+  border-radius: 15px;
+}
