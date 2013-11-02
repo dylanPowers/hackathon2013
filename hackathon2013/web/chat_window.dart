@@ -8,6 +8,7 @@ import 'package:hackathon2013/service_message.dart';
 class ChatWindow extends PolymerElement {
   
   String _SOCKET_ADDRESS = "localhost";
+  int _SOCKET_PORT = 4000;
   
   var chatWindowContent;
   
@@ -38,7 +39,7 @@ class ChatWindow extends PolymerElement {
     content.user = new User(nameTextWindow.value);
 
     try {
-      content.webSocket = new WebSocket(_SOCKET_ADDRESS);
+      content.webSocket = new WebSocket('ws://$_SOCKET_ADDRESS:$_SOCKET_PORT/');
     } catch(e) {
       
     }
