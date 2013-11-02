@@ -6,4 +6,6 @@ class MessageBox extends PolymerElement {
   @observable String cssClassProps = "right";
   
   get applyAuthorStyles => true;
+  
+  MessageBox.created() : super.created();
 }

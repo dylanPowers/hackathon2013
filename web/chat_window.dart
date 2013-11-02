@@ -1,8 +1,8 @@
 import 'dart:html';
 import 'chat_window_content.dart';
-import 'package:hackathon2013/user.dart';
+import 'package:small_talk/user.dart';
 import 'package:polymer/polymer.dart';
-import 'package:hackathon2013/service_message.dart';
+import 'package:small_talk/service_message.dart';
 
 @CustomTag('chat-window')
 class ChatWindow extends PolymerElement {

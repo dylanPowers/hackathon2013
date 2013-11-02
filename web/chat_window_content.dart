@@ -1,7 +1,7 @@
 import 'dart:html';
-import 'package:hackathon2013/user.dart';
-import 'package:hackathon2013/chat_message.dart';
-import 'package:hackathon2013/service_message.dart';
+import 'package:small_talk/user.dart';
+import 'package:small_talk/chat_message.dart';
+import 'package:small_talk/service_message.dart';
 import 'package:polymer/polymer.dart';
 import 'message_box.dart';
 
@@ -21,6 +21,8 @@ class ChatWindowContent extends PolymerElement {
   
   WebSocket webSocket;  
   get applyAuthorStyles => true;
+  
+  ChatWindowContent.created() : super.created();
   
   void inserted() {
     super.inserted();

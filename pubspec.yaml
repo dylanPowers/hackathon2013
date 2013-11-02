@@ -1,5 +1,5 @@
-name: hackathon2013
-description: A sample web application
+name: small_talk
+description: A chat application inspired by Snapchat
 dependencies:
   browser: any
   json: any
