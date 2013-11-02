@@ -4,9 +4,9 @@ import 'dart:async';
 import 'dart:io';
 import 'package:pathos/path.dart' as pathOS;
 
-import 'package:hackathon2013/chat_message.dart';
-import 'package:hackathon2013/service_message.dart';
-import 'package:hackathon2013/user.dart';
+import 'package:small_talk/chat_message.dart';
+import 'package:small_talk/service_message.dart';
+import 'package:small_talk/user.dart';
 
 part 'db_controller.dart';
 part 'socket_handler.dart';

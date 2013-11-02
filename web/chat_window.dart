@@ -19,6 +19,8 @@ class ChatWindow extends PolymerElement {
   
   get applyAuthorStyles => true;
   
+  ChatWindow.created() : super.created();
+  
   void inserted() {
     super.inserted();
     
