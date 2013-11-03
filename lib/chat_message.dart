@@ -1,8 +1,8 @@
-library chat_message;
+part of common;
 
-import "package:json/json.dart" as json;
+//import "package:json/json.dart" as json;
 
-import 'user.dart';
+//import 'user.dart';
 
 class ChatMessage {
   

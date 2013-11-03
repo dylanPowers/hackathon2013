@@ -1,4 +1,12 @@
+<link rel="import" href="templates/chat_window.html">
+<link rel="import" href="templates/sign_in.html">
+
 <polymer-element name="small-talk">
-  
+  <template>
+    <template if="{{showSignIn}}">
+      <sign-in></sign-in>
+    </template>
+    <chat-window></chat-window>
+  </template>
   <script type="application/dart" src="small_talk.dart"></script>
 </polymer-element>

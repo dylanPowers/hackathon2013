@@ -1,0 +1,11 @@
+<polymer-element name="chat-input">
+  <template>
+    <form id="chat-input">
+      Message: 
+      <input type="text" name="inputTextWindow" id="inputTextWindowId" on-keydown="enter" />
+      Time Alive:
+      <input type="text" name="timeAliveWindow" id="timeAliveWindowId" on-keydown="enter" />
+      <input type="button" name="sendButton" value="Send!" id="sendButtonId" on-click="send" />
+    </form>  
+  </template>
+</polymer-element>

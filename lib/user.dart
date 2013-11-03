@@ -1,10 +1,10 @@
-library user;
+part of common;
 
 class User {
   int id;
   String name;
   
-  User(this.name) {}
+  User(this.name);
 
   User.fromMap(Map map) {
     id = map['id'];

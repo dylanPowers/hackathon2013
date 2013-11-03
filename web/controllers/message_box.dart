@@ -1,4 +1,6 @@
-import 'package:polymer/polymer.dart';
+//import 'package:polymer/polymer.dart';
+
+part of small_talk;
 
 @CustomTag('message-box')
 class MessageBox extends PolymerElement {

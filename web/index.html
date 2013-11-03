@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-
+<!-- 
+  For an overview, this file works more as a bootstrap to the rest of the 
+  application. It acts as an entry point where we import mundane and generic
+  html stuff that's necessary for every web app. Following the imports
+  around will lead to "small_talk.dart" which is where the real action starts.
+ -->
 <html>
   <head>
     <meta charset="utf-8">
-    <title>SmallTalk</title>
-    <script src="packages/polymer/boot.js"></script> 
-    <link rel="stylesheet" href="hackathon2013.css" polymer-scope="global"> 
-    <link rel="import" href="message_box.html">
-    <link rel="import" href="chat_window.html">
-    <link rel="import" href="chat_window_content.html">
+    <title>Small Talk</title>
+    <link rel="stylesheet" href="style/small_talk.css"> 
+    <link rel="import" href="small_talk.html">
   </head>
   <body>
-
     <small-talk></small-talk>
-
-    <script type="application/dart">main(){ }</script>
+    
+    <script src="packages/browser/dart.js"></script>    
+    <script type="application/dart">
+    	import 'package:polymer/polymer.dart';
+    	main() => initPolymer();
+    </script>
   </body>
 </html>

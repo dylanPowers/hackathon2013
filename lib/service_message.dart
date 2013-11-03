@@ -1,9 +1,9 @@
-library service_message;
+part of common;
 
-import "package:json/json.dart" as json;
-
-import 'chat_message.dart';
-import 'user.dart';
+//import "package:json/json.dart" as json;
+//
+//import 'chat_message.dart';
+//import 'user.dart';
 
 class ServiceMessage {
   static const int ACTION_NEW = 0;
@@ -45,4 +45,8 @@ class ServiceMessage {
         '}';
     return jsonStr;
   }
+}
+
+class ServicePayload {
+  // TODO: Experiment with mixins
 }
