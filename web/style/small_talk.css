@@ -1,17 +1,27 @@
 body {
-  background-color: #F8F8F8;
+  background-color: #FFF9DF;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.2em;
-  margin: 15px;
+  margin: 0px;
 }
 
 h1, p {
   color: #333;
 }
 
+.center {
+    float: right;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    width: 50%;
+}
 
+.error {
+  color: rgb(190, 59, 59);
+}
 
 .right {
   clear: both;
@@ -22,6 +32,14 @@ h1, p {
   position: relative;
   right: 25px;
   width: 324px;
+}
+
+#sign-in-form {
+  height: 100px;
+  left: -128px;
+  position: absolute;
+  text-align: center;
+  width: 256px;
 }
 
 #chat-window {
@@ -35,9 +53,10 @@ h1, p {
 }
 
 #chat-input {
-  clear: both;
-  bottom: 0px;
+  bottom: 5px;
+  left: -278px;
   position: absolute;
+  width: 556px;
 }
 
 #message-box {

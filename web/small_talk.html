@@ -3,10 +3,12 @@
 
 <polymer-element name="small-talk">
   <template>
-    <template if="{{showSignIn}}">
-      <sign-in></sign-in>
-    </template>
-    <chat-window></chat-window>
+    <div class="center">
+      <template if="{{showSignIn}}">
+        <sign-in></sign-in>
+      </template>
+      <chat-window></chat-window>
+    </div>
   </template>
   <script type="application/dart" src="small_talk.dart"></script>
 </polymer-element>

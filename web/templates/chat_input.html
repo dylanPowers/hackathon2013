@@ -1,11 +1,11 @@
 <polymer-element name="chat-input">
   <template>
-    <form id="chat-input">
+    <form id="chat-input" on-submit="{{submit}}">
       Message: 
-      <input type="text" name="inputTextWindow" id="inputTextWindowId" on-keydown="enter" />
+      <input type="text" value="{{message}}"/>
       Time Alive:
-      <input type="text" name="timeAliveWindow" id="timeAliveWindowId" on-keydown="enter" />
-      <input type="button" name="sendButton" value="Send!" id="sendButtonId" on-click="send" />
+      <input type="number" value="{{timeOutSeconds}}" />
+      <input type="submit" value="Send!" id="sendButtonId" />
     </form>  
   </template>
 </polymer-element>

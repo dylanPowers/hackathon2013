@@ -1,13 +1,8 @@
-//import 'dart:html';
-//import 'package:small_talk/user.dart';
-//import 'package:small_talk/chat_message.dart';
-//import 'package:small_talk/service_message.dart';
-//import 'package:polymer/polymer.dart';
-//import 'message_box.dart';
 part of small_talk;
 
 @CustomTag('chat-window')
 class ChatWindowElement extends PolymerElement {
+  get applyAuthorStyles => true;
   
 //  var messageBox;
 //  
@@ -21,7 +16,6 @@ class ChatWindowElement extends PolymerElement {
 //  User user;
   
 //  WebSocket webSocket;  
-  get applyAuthorStyles => true;
   
   ChatWindowElement.created() : super.created();
   
@@ -75,20 +69,6 @@ class ChatWindowElement extends PolymerElement {
 //        }
 //      });
 //    }
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
 //    var message = new ServiceMessage.fromJson(e.data);
 //    
 //    

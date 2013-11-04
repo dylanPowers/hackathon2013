@@ -1,10 +1,10 @@
-<polymer-element name="sign-in" apply-author-styles>
+<polymer-element name="sign-in">
   <template>  
     <form id="sign-in-form" on-submit="{{submit}}">      
       <p>Hi there, what's your name?</p>
       <input type="text" value="{{name}}" />
       <input type="submit" value="Submit!" />
+      <p class="error">{{errorMsg}}</p>
     </form>
-    <p>I'm a copy cat: {{name}}</p>    
   </template> 
 </polymer-element>

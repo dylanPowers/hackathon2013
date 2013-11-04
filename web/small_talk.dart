@@ -16,6 +16,8 @@ part 'controllers/sign_in.dart';
 @CustomTag('small-talk')
 class SmallTalk extends PolymerElement {
   
+  // Until Dartium/Chromium/Chrome supports CSS editing of shadow dom objects
+  // all HTML templates will use the global style sheet.
   bool get applyAuthorStyles => true;
   
   @observable
