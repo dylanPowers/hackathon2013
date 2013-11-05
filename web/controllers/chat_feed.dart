@@ -7,16 +7,21 @@ class ChatFeed extends PolymerElement {
   StreamSubscription<ChatMessage> _msgStream;
   Session _session = new Session();
   
-  ChatFeed.created() : super.created() {
-    _msgStream = _session.chatMessages.listen(onMessage);
+  ObservableList<MessageBox> boxes = new ObservableList();
+  
+  ChatFeed.created() : super.created();
+  
+  @override
+  void enteredView() {
+    super.enteredView();
+    _msgStream = _session.chatMessages.listen(onMessage);    
   }
   
   void onMessage(ChatMessage msg) {
     var feed = $['chat-feed'];
-    feed.children.add(new Element.tag('massage-box'));
-//    var msgBox = new Element.tag('message-box');
-//    MessageBox box = msgBox.xtag;
-//    box.boxText = msg.text;
-//    messageElements.add(box);
+    MessageBox el = new Element.tag('message-box');
+    el.boxText = msg.text;
+    boxes.add(el);
+    feed.children.add(el);
   }
 }
